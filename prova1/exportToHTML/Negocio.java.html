@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>Negocio.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Negocio.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">dados.Cliente</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">dados.ClienteOuro</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">Negocio {</span>
+    <span class="s0">private </span><span class="s1">Cliente clientes[] = </span><span class="s0">new </span><span class="s1">Cliente[</span><span class="s2">50</span><span class="s1">]</span><span class="s0">;</span>
+    <span class="s0">private int </span><span class="s1">quantClientes</span><span class="s0">;</span>
+    <span class="s0">private int </span><span class="s1">quantClientesOuro</span><span class="s0">;</span>
+
+    <span class="s0">public void </span><span class="s1">adicionaCliente(Cliente somaClientes){</span>
+        <span class="s1">clientes[quantClientes + quantClientesOuro] = somaClientes</span><span class="s0">;</span>
+        <span class="s1">quantClientes++</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">adicionarClienteOuro(Cliente somaClientes){</span>
+        <span class="s1">clientes[quantClientes + quantClientesOuro] = somaClientes</span><span class="s0">;</span>
+        <span class="s1">quantClientesOuro++</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public float </span><span class="s1">totalMensalidades(){</span>
+        <span class="s0">float </span><span class="s1">soma = </span><span class="s2">0</span><span class="s0">;</span>
+        <span class="s0">for </span><span class="s1">(Cliente qualquer : clientes){</span>
+            <span class="s1">soma += qualquer.getMensalidade()</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">soma</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public float </span><span class="s1">totalBeneficios(){</span>
+        <span class="s0">float </span><span class="s1">soma = </span><span class="s2">0</span><span class="s0">;</span>
+        <span class="s0">for </span><span class="s1">(Cliente qualquer : clientes){</span>
+            <span class="s1">soma += qualquer.getBeneficio()</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">soma</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public </span><span class="s1">String[] listaNomeClientesOuro(){</span>
+    <span class="s1">String nomesClientes[] = </span><span class="s0">new </span><span class="s1">String[quantClientesOuro]</span><span class="s0">;</span>
+    <span class="s0">int </span><span class="s1">aux = </span><span class="s2">0</span><span class="s0">;</span>
+    <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">i &lt; quantClientesOuro + quantClientes</span><span class="s0">; </span><span class="s1">i++){</span>
+        <span class="s0">if </span><span class="s1">(clientes[i] </span><span class="s0">instanceof </span><span class="s1">ClienteOuro){</span>
+            <span class="s1">nomesClientes[aux] = clientes[i].getNome()</span><span class="s0">;</span>
+            <span class="s1">aux++</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+    <span class="s0">return </span><span class="s1">nomesClientes</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>

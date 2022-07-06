@@ -1,0 +1,110 @@
+<html>
+<head>
+<title>Principal.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Principal.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java.util.*</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">dados.*</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">Principal {</span>
+    <span class="s0">private static </span><span class="s1">Negocio negocio = </span><span class="s0">new </span><span class="s1">Negocio()</span><span class="s0">;</span>
+    <span class="s0">static </span><span class="s1">Scanner ler = </span><span class="s0">new </span><span class="s1">Scanner(System.in)</span><span class="s0">;</span>
+
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+        <span class="s0">int </span><span class="s1">escolher</span><span class="s0">;</span>
+        <span class="s0">do </span><span class="s1">{</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;</span><span class="s0">\t </span><span class="s2">Menu de Opcoes&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;(0) - Cadastrar Cliente&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;(1) - Cadastrar Cliente Ouro&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;(2) - Mostrar Mensalidades&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;(3) - Mostrar Beneficios&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;(4) - Mostrar Clientes Ouro&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;(5) - Mostrar Clientes&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;(6) - Encerrar&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+            <span class="s1">escolher = Integer.parseInt(ler.nextLine())</span><span class="s0">;</span>
+
+            <span class="s0">switch </span><span class="s1">(escolher) {</span>
+                <span class="s0">case </span><span class="s3">0</span><span class="s1">:</span>
+                    <span class="s1">cadastraCliente()</span><span class="s0">;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s3">1</span><span class="s1">:</span>
+                    <span class="s1">cadastraClienteOuro()</span><span class="s0">;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s3">2</span><span class="s1">:</span>
+                    <span class="s1">mostraTotalMensalidades()</span><span class="s0">;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s3">3</span><span class="s1">:</span>
+                    <span class="s1">mostraTotalBeneficios()</span><span class="s0">;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s3">4</span><span class="s1">:</span>
+                    <span class="s1">mostraNomeClientesOuro()</span><span class="s0">;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s3">5</span><span class="s1">:</span>
+                    <span class="s1">mostraNomeClientes()</span><span class="s0">;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s3">6</span><span class="s1">:</span>
+                    <span class="s1">System.exit(</span><span class="s3">0</span><span class="s1">)</span><span class="s0">;</span>
+                    <span class="s0">break;</span>
+            <span class="s1">}</span>
+        <span class="s1">} </span><span class="s0">while </span><span class="s1">(escolher != </span><span class="s3">5</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public static void </span><span class="s1">cadastraCliente() {</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Nome do Cliente: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">String nome = ler.nextLine()</span><span class="s0">;</span>
+        <span class="s1">Cliente cliente = </span><span class="s0">new </span><span class="s1">Cliente()</span><span class="s0">;</span>
+        <span class="s1">cliente.setNome(nome)</span><span class="s0">;</span>
+        <span class="s1">cliente.setMensalidade(</span><span class="s3">99</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">cliente.setBeneficio(</span><span class="s3">2</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">negocio.adicionaCliente(cliente)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public static void </span><span class="s1">cadastraClienteOuro() {</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Nome do Cliente Ouro:&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">String nome = ler.nextLine()</span><span class="s0">;</span>
+        <span class="s1">ClienteOuro cliente = </span><span class="s0">new </span><span class="s1">ClienteOuro()</span><span class="s0">;</span>
+        <span class="s1">cliente.setNome(nome)</span><span class="s0">;</span>
+        <span class="s1">cliente.setMensalidade(</span><span class="s3">249</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">cliente.setBeneficio(</span><span class="s3">6</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">negocio.adicionarClienteOuro(cliente)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public static void </span><span class="s1">mostraTotalMensalidades() {</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Total de Mensalidades: &quot; </span><span class="s1">+ negocio.totalMensalidades())</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public static void </span><span class="s1">mostraTotalBeneficios() {</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Total de Benefícios: &quot; </span><span class="s1">+ negocio.totalBeneficios())</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public static void </span><span class="s1">mostraNomeClientesOuro() {</span>
+        <span class="s1">String nomes[] = negocio.listaNomeClientesOuro()</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Nome Clientes Ouro:&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">for </span><span class="s1">(String nome : nomes)</span>
+            <span class="s1">System.out.println(nome)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public static void </span><span class="s1">mostraNomeClientes() {</span>
+        <span class="s1">String nomes[] = negocio.listaNomeClientes()</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Nome Clientes:&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">for </span><span class="s1">(String nome : nomes)</span>
+            <span class="s1">System.out.println(nome)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>
